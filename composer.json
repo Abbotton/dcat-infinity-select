@@ -1,0 +1,32 @@
+{
+    "name": "abbotton/dcat-infinity-select",
+    "alias": "Dcat Admin 无限级联动Select组件",
+    "description": "基于Dcat Admin开发的无限级联动Select组件，主要解决不确定层级的树形数据的操作问题。",
+    "type": "library",
+    "keywords": ["dcat-admin", "extension"],
+    "homepage": "https://github.com/abbotton/dcat-infinity-select",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abbotton",
+            "email": "uctoo@foxmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "dcat/laravel-admin": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dcat\\Admin\\Extension\\DcatInfinitySelect\\": "src/"
+        }
+    },
+    "extra": {
+        "dcat-admin": "Dcat\\Admin\\Extension\\DcatInfinitySelect\\DcatInfinitySelectServiceProvider",
+        "laravel": {
+            "providers": [
+                "Dcat\\Admin\\Extension\\DcatInfinitySelect\\DcatInfinitySelectServiceProvider"
+            ]
+        }
+    }
+}
