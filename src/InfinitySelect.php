@@ -20,4 +20,17 @@ class InfinitySelect extends Select
 
         return $this;
     }
+
+    /**
+     * 设定有序链表的字段名称.
+     *
+     * @param  string  $listName
+     * @return $this
+     */
+    public function listName(string $listName)
+    {
+        $this->addVariables(['listName' => $listName]);
+
+        return $this;
+    }
 }

@@ -44,15 +44,21 @@ composer require abbotton/dcat-infinity-select
 protected function form()
 {
     return Form::make(new Product(), function (Form $form) {
+        /**
+         * 重要的事情说三遍！ 
+         * 必须调用`listName()`方法设定有序链表的name值，否则报错！
+         * 必须调用`listName()`方法设定有序链表的name值，否则报错！ 
+         * 必须调用`listName()`方法设定有序链表的name值，否则报错！ 
+         */
         // 创建时.
-        $form->infinitySelect('category', '无限联动')->options(url('foo/bar'));
+        $form->infinitySelect('category', '无限联动')->listName('category_list')->options(url('foo/bar'));
         // 编辑时.
-        $form->infinitySelect('category', '无限联动')->options(url('foo/bar'))->list('1,2,6')->value(6);
+        $form->infinitySelect('category', '无限联动')->listName('category_list')->options(url('foo/bar'))->list('1,2,6')->value(6);
         // 获取提交的数据.
         $form->saving(function (Form $form) {
             // 获取最终选择的一项
             $category = $form->input('category');
-            // 获取整个有序链表, `key`由表单的`name值`拼接`_list`生成.
+            // 获取整个有序链表
             $categoryList = $form->input('category_list');
         });
     });
@@ -72,6 +78,20 @@ public function someMethod(Request $request)
     
     return Category::where('pid', $key)->get(['id', DB::raw('name as text')]);
 }
+```
+
+接口返回值必须满足如下数据结构:
+```json
+[
+    {
+        "id": 9,
+        "text": "xxx"
+    },
+    {
+        "id": 21,
+        "text": "xxx"
+    }
+]
 ```
 
 ## License

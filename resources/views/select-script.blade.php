@@ -59,7 +59,7 @@
         // 修改样式
         $('.{{$name}}-infinity-select-container .select2-container').css('margin-right', '10px');
         if (infinityList.length > 0) {
-            $('input[name="{{$name}}_list"]').val(Array.from(new Set(infinityList)).join(','));
+            $('input[name="{{$listName}}"]').val(Array.from(new Set(infinityList)).join(','));
         }
     }
 
@@ -91,7 +91,7 @@
                 configs.data = result;
                 initSelect2(getInfinitySelectHtml(result));
             } else {
-                $('input[name="{{$name}}_list"]').val(Array.from(new Set(infinityList)).join(','));
+                $('input[name="{{$listName}}"]').val(Array.from(new Set(infinityList)).join(','));
             }
         }
     }
@@ -103,7 +103,7 @@
         $('.select2-container--open').eq(idx).remove();
         if (infinityList.length > 1) {
             infinityList.splice(idx);
-            $('input[name="{{$name}}_list"]').val(Array.from(new Set(infinityList)).join(','));
+            $('input[name="{{$listName}}"]').val(Array.from(new Set(infinityList)).join(','));
         }
         currentIndex = getInfinitySelectElementLength() - 1;
     }

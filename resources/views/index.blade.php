@@ -8,7 +8,7 @@
         @include('admin::form.error')
 
         <input type="hidden" name="{{$name}}"/>
-        <input type="hidden" name="{{$name}}_list"/>
+        <input type="hidden" name="{{$listName}}"/>
         <div class="{{$name}}-infinity-select-container infinity-select-container" style="display: flex;">
             <select class="form-control {{$class}}" style="width: 200px;" {!! $attributes !!} data-index="0">
                 <option value=""></option>
