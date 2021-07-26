@@ -70,6 +70,10 @@ public function someMethod(Request $request)
 {
     $key = $request->get('q', 0);
     
-    return Category::where('pid', $key)->get(['id', 'name as text']);
+    return Category::where('pid', $key)->get(['id', DB::raw('name as text')]);
 }
 ```
+
+## License
+
+MIT
